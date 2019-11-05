@@ -30,7 +30,7 @@ class Config
     const CHAT_CONFIGURE_WIDGET_PATH = 'account/chat-settings';
 
 //    const MAGENTO_ROUTE = 'connector/email/accountcallback';
-    const MAGENTO_PROFILE_CALLBACK_ROUTE = 'connector/chat/profile?isAjax=true';
+    const MAGENTO_PROFILE_CALLBACK_ROUTE = 'ec_chat/profile?isAjax=true';
 
     /**
      * Cookie used to get chat profile ID
@@ -186,7 +186,7 @@ class Config
      */
     public function getConfigureChatTeamButtonUrl()
     {
-        return $this->urlBuilder->getUrl('dotdigitalgroup_email/chat/team');
+        return $this->urlBuilder->getUrl('dotdigitalgroup_chat/studio/team');
     }
 
     /**
@@ -194,26 +194,26 @@ class Config
      */
     public function getConfigureChatWidgetButtonUrl()
     {
-        return $this->urlBuilder->getUrl('dotdigitalgroup_email/chat/widget');
+        return $this->urlBuilder->getUrl('dotdigitalgroup_chat/studio/widget');
     }
 
-    /**
-     * Save API credentials sent by microsite
-     *
-     * @param string $apiUsername
-     * @param string $apiPassword
-     * @param string|null $apiEndpoint
-     * @return $this
-     */
-    public function saveApiCredentials(string $apiUsername, string $apiPassword, string $apiEndpoint = null)
-    {
-        $this->configWriter->save(EmailConfig::XML_PATH_CONNECTOR_API_USERNAME, $apiUsername, $this->scopeInterface, $this->websiteId);
-        $this->configWriter->save(EmailConfig::XML_PATH_CONNECTOR_API_PASSWORD, $this->encryptor->encrypt($apiPassword), $this->scopeInterface, $this->websiteId);
-        if ($apiEndpoint) {
-            $this->configWriter->save(EmailConfig::PATH_FOR_API_ENDPOINT, $apiEndpoint, $this->scopeInterface, $this->websiteId);
-        }
-        return $this;
-    }
+//    /**
+//     * Save API credentials sent by microsite
+//     *
+//     * @param string $apiUsername
+//     * @param string $apiPassword
+//     * @param string|null $apiEndpoint
+//     * @return $this
+//     */
+//    public function saveApiCredentials(string $apiUsername, string $apiPassword, string $apiEndpoint = null)
+//    {
+//        $this->configWriter->save(EmailConfig::XML_PATH_CONNECTOR_API_USERNAME, $apiUsername, $this->scopeInterface, $this->websiteId);
+//        $this->configWriter->save(EmailConfig::XML_PATH_CONNECTOR_API_PASSWORD, $this->encryptor->encrypt($apiPassword), $this->scopeInterface, $this->websiteId);
+//        if ($apiEndpoint) {
+//            $this->configWriter->save(EmailConfig::PATH_FOR_API_ENDPOINT, $apiEndpoint, $this->scopeInterface, $this->websiteId);
+//        }
+//        return $this;
+//    }
 
     /**
      * Save chat API space ID and token
