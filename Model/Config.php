@@ -30,7 +30,7 @@ class Config
     const CHAT_CONFIGURE_WIDGET_PATH = 'account/chat-settings';
 
 //    const MAGENTO_ROUTE = 'connector/email/accountcallback';
-//    const MAGENTO_PROFILE_CALLBACK_ROUTE = 'connector/chat/profile?isAjax=true';
+    const MAGENTO_PROFILE_CALLBACK_ROUTE = 'connector/chat/profile?isAjax=true';
 
     /**
      * Cookie used to get chat profile ID
